@@ -18,6 +18,18 @@ Node * findMaximum( Node * root ){
     return root;
 }
 
+/*This function implements the same functionality of finding 
+maximum node in a given binary seearch tree.
+Problem with this function is that i BST is right skewed and 
+has huge number of nodes, you risk the stack overflow.
+*/
+
+Node * findMaximum( Node * root ){
+	if(!( root && root->right ) ) return root;
+
+	return findMaximum(root->right);
+} 
+
 void inoderTraversal(Node * root){
     if(!root) return;
 	
