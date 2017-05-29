@@ -31,7 +31,7 @@ Node *addNode(Node *node, int value){
     if(!node)
 	    return createNode(value);
     else{
-	    if (node->value > value)
+	if (node->value > value)
             node->left = addNode(node->left, value);
         else
             node->right = addNode(node->right, value);
