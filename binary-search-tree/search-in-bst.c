@@ -51,7 +51,7 @@ Node * search( Node * root, int searchedKey){
 	}
     else{
         //search in right subtree
-	    return search( root->right, searchedKey);
+        return search( root->right, searchedKey);
     }
 }
 
@@ -71,7 +71,7 @@ int main(){
     Node * searchedNode = search( root, 15);
     if(searchedNode)
         printf("\n Node found ");
-	else
+    else
         printf("\n Node not found ");
 	
     return 0;
