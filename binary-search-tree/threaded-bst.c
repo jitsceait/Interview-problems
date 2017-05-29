@@ -38,7 +38,7 @@ int isEmpty( Queue *q){
 
 void enqueue( Queue *q, Node * node){
     if(q){
-	    q->items[(q->rear)++] = node;
+        q->items[(q->rear)++] = node;
     }
 }
 
@@ -51,7 +51,7 @@ Node * dequeue( Queue *q){
 
 Node * front( Queue *q){
     if(!isEmpty(q)){
-	    return q->items[(q->front)];
+        return q->items[(q->front)];
     }
     return NULL;
 }
@@ -108,7 +108,7 @@ Node *createNode(int value){
 
 Node *addNode(Node *node, int value){
     if(!node){
-	    return createNode(value);
+        return createNode(value);
     }
     if (node->value > value)
         node->left = addNode(node->left, value);
