@@ -40,6 +40,19 @@ Node *addNode(Node *node, int value){
      return node;
 }
 
+Node * searchIterative( Node * root, int searchedKey){
+    if(!root) return root;
+	
+    Node * currentNode = root;
+    while( currentNode && currentNode->value != searchedKey ){
+        if(currentNode->value > searchedKey)
+	    currentNode = currentNode->left;
+	else
+	    currentNode = currentNode->right;
+     }
+     return currentNode;
+}
+
 Node * search( Node * root, int searchedKey){
     if(!root) return root;
 	
@@ -48,7 +61,7 @@ Node * search( Node * root, int searchedKey){
     else if ( root->value > searchedKey) {
         //search in left subtree
         return search( root->left, searchedKey);
-	}
+    }
     else{
         //search in right subtree
         return search( root->right, searchedKey);
