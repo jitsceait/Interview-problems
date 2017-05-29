@@ -22,9 +22,9 @@ Node *createNode(int value){
 	return newNode;
 }
 Node *addNode(Node *node, int value){
-	if(!node){
+	if(!node)
 		return createNode(value);
-	}
+    
 	if (node->value > value)
 		node->left = addNode(node->left, value);
 	else
@@ -57,6 +57,7 @@ int isHeightBalanced( Node * root ){
 /* Driver program for the function written above */
 int main(){
 	Node *root = NULL;
+    
 	//Creating a binary tree
 	root = addNode(root, 30);
 	root = addNode(root, 20);
@@ -68,6 +69,7 @@ int main(){
 	root = addNode(root, 45);
 	root = addNode(root, 47);
 	root = addNode(root, 49);
+    
 	printf( "Is tree height balanced : %s", 
 			isHeightBalanced( root ) ? "Yes" : "No" );
 	
