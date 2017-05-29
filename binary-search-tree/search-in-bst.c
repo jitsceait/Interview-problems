@@ -29,15 +29,15 @@ Node *createNode(int value){
 
 Node *addNode(Node *node, int value){
     if(!node)
-	    return createNode(value);
+        return createNode(value);
     else{
 	if (node->value > value)
             node->left = addNode(node->left, value);
         else
             node->right = addNode(node->right, value);
-	}
+     }
     
-	return node;
+     return node;
 }
 
 Node * search( Node * root, int searchedKey){
