@@ -45,9 +45,9 @@ Node * search( Node * root, int searchedKey){
 	
     if( root->value == searchedKey)
         return root;
-	else if ( root->value > searchedKey) {
+    else if ( root->value > searchedKey) {
         //search in left subtree
-		return search( root->left, searchedKey);
+        return search( root->left, searchedKey);
 	}
     else{
         //search in right subtree
@@ -70,9 +70,9 @@ int main(){
 	
     Node * searchedNode = search( root, 15);
     if(searchedNode)
-		printf("\n Node found ");
+        printf("\n Node found ");
 	else
-	    printf("\n Node not found ");
+        printf("\n Node not found ");
 	
     return 0;
 }
