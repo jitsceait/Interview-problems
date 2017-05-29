@@ -72,8 +72,8 @@ void createThreads( Node * root, Queue *q){
     
     if(root->right) createThreads (root->right, q);
     else{
-	    root->right = front(q);
-	    root->isRightThread = true;
+	root->right = front(q);
+	root->isRightThread = true;
     }
 }
 
@@ -82,7 +82,7 @@ void createThreadedTree(Node * root){
     initializeQueue(&q);
 	
     feedQueue(root, q);
-	createThreads(root, q);
+    createThreads(root, q);
 }
 
 void inoderTraversal(Node * root){
@@ -103,12 +103,12 @@ void inoderTraversalUsingThreads(Node * root){
     Node * currentNode = leftMostNode(root);
 	
     while(currentNode){
-	    printf("%d ", currentNode->value);
-	    if(currentNode->isRightThread)
-	        currentNode = currentNode->right;
+        printf("%d ", currentNode->value);
+	if(currentNode->isRightThread)
+	    currentNode = currentNode->right;
         else
             currentNode = leftMostNode(currentNode->right);
-	}
+    }
 }
 
 Node *createNode(int value){
@@ -126,7 +126,7 @@ Node *addNode(Node *node, int value){
     if(!node) return createNode(value);
     
     if (node->value > value)
-	    node->left = addNode(node->left, value);
+	node->left = addNode(node->left, value);
     else
         node->right = addNode(node->right, value );
 		
@@ -156,4 +156,3 @@ int main(){
 	
     return 0;
 }
-
