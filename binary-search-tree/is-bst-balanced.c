@@ -71,7 +71,7 @@ int main(){
 	root = addNode(root, 49);
     
 	printf( "Is tree height balanced : %s", 
-			isHeightBalanced( root ) ? "Yes" : "No" );
+	isHeightBalanced( root ) ? "Yes" : "No" );
 	
 	return 0;
 }
