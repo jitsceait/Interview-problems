@@ -51,12 +51,12 @@ Node *createNode(int value){
 
 Node *addNode(Node *node, int value){
     if(!node)
-	return createNode(value);
+	    return createNode(value);
 
     if (node->value > value)
-	node->left = addNode(node->left, value);
+	    node->left = addNode(node->left, value);
     else
-	node->right = addNode(node->right, value);
+	    node->right = addNode(node->right, value);
 		
     return node;
 }
