@@ -54,6 +54,26 @@ int isHeightBalanced( Node * root ){
 		   && isHeightBalanced( root->right );
 	
 }
+
+int isHeightBalancedRecursive( Node * root, int *height ){
+	if(!root){
+		*height = 0;
+		return true;	
+	} 
+	
+	int lheight = 0, rheight = 0;
+	int lBalanced = isHeightBalanced( root->left, &lheight );
+	int rBalanced = isHeightBalanced( root->right, & rheight );
+	
+	//Update the height
+	*height = 1 + MAX ( lheight, rheight);
+	
+	//Check if difference between two height is more than 1
+	if (abs( lheight-rheight) > 1 ) return false;
+	
+	return lBalanced && rBalanced;
+		  
+}
 /* Driver program for the function written above */
 int main(){
 	Node *root = NULL;
