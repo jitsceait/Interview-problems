@@ -31,7 +31,7 @@ void initializeQueue( Queue **queue ){
 
 int isEmpty( Queue *q){
     if(q->front == q->rear ){
-	    return true;
+	return true;
     }
     return false;
 }
@@ -44,7 +44,7 @@ void enqueue( Queue *q, Node * node){
 
 Node * dequeue( Queue *q){
     if(!isEmpty(q)){
-	    return q->items[(q->front)++];
+	return q->items[(q->front)++];
     }
     return NULL;
 }
