@@ -22,8 +22,7 @@ Node *createNode(int value){
 }
 
 Node *addNode(Node *node, int value){
-    if(!node)
-		return createNode(value);
+    if(!node) return createNode(value);
         
     if (node->value > value)
         node->left = addNode(node->left, value);
