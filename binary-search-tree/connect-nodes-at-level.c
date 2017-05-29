@@ -87,6 +87,21 @@ void printTreeLevel(Node *root){
         current = current->left;
     }
 }
+
+void connect(Node* p) {
+	
+  if (!p) return;
+  
+  if (p->left)
+  	p->left->next = p->right;
+  
+  if (p->right)
+    p->right->next = (p->next) ? p->next->left : NULL;
+    
+  connect(p->left);
+  connect(p->right);
+}
+
 //Driver program
 int main(){
 	Node *root = NULL;
