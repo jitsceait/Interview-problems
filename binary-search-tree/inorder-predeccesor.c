@@ -10,34 +10,30 @@ struct node{
 typedef struct node Node;
 
 Node * findMinimum(Node *root){
-	if(!root)
-		return root;
-	
-	while(root->left){
-		root = root->left;
-	}
-	return root;
+    if(!root) return root;
+    while(root->left){
+	root = root->left;
+    }
+    return root;
 }
 
 Node * inorderSuccessor(Node *root, int K){
-	Node * successor = NULL;
-	Node *current  = root;
+    Node * successor = NULL;
+    Node *current  = root;
 	
-	if(!root)
-		return root;
+    if(!root) return root;
 		
-	while(current->value != K){
-		if(current->value >K){
-			successor = current;
-			current = current->left;
-		}
-		else
-			current = current->right;
-		}
-		if(current && current->right){
-			successor = findMinimum(current->right);
-		}
-		return successor;
+    while(current->value != K){
+	if(current->value >K){
+	    successor = current;
+	    current = current->left;
+	}
+	else
+	    current = current->right;
+	    if(current && current->right)
+		successor = findMinimum(current->right);
+    }
+    return successor;
 }
 /* This function return the maximum node in tree rooted at node root */
 Node *findMaximum(Node *root){
