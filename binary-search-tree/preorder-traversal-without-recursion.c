@@ -80,12 +80,15 @@ void preorder (Node *root){
 }
  
 Node * createNode(int value){
-    Node * temp =  (Node *)malloc(sizeof(Node));
-    temp->value = value;
-    temp->right= NULL;
-    temp->left = NULL;
-    return temp;
+    Node * newNode =  (Node *)malloc(sizeof(Node));
+	
+    newNode->value = value;
+    newNode->right= NULL;
+    newNode->left = NULL;
+	
+    return newNode;
 }
+
 Node * addNode(Node *node, int value){
     if(node == NULL){
     	return createNode(value);
@@ -112,8 +115,10 @@ int main(){
         root = addNode(root,40);
         root = addNode(root,37);
         root = addNode(root,45);
-        preorder(root);
+        
+	preorder(root);
         printf("\n");
+	
         preorderTraversalWithoutRecursion(root);
         return 0;
 }
