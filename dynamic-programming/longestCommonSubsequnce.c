@@ -1,6 +1,19 @@
 #include <stdio.h>
 #include <string.h>
 
+int longestCommonSubsequnceLength(char *A, char *B){
+ 
+	if (*A == '\0' || *B == '\0') return 0;
+ 
+	else if (*A == *B) {
+		return 1 + longestCommonSubsequnceLength(A+1, B+1);
+	}
+	else {
+		return	max(longestCommonSubsequnceLength(A+1,B), 
+		    		longestCommonSubsequnceLength(A,B+1));
+	}
+}
+
 int longestCommonSubsequnceLength(char * A, char * B) {
 	int lenA = strlen(A);
  	int lenB = strlen(B);
