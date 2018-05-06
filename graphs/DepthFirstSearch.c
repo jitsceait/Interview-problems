@@ -16,6 +16,64 @@ int visited[NUM_NODE + 1];
 
 int onStack[NUM_NODE + 1];
 
+typedef struct node{
+        int value;
+        struct node *next;
+}Node;
+ 
+typedef struct stack{
+        int top;
+        Node *items[NUM_NODE];
+}stack;
+ 
+void push(stack *ms, Node *item){
+   if(ms->top < NUM_NODE-1){
+       ms->items[++(ms->top)] = item;
+   }
+   else {
+       printf("Stack is full\n");
+   }
+}
+ 
+Node * pop (stack *ms){
+   if(ms->top > -1 ){
+       return ms->items[(ms->top)--];
+   } 
+   else{
+       printf("Stack is empty\n");
+   }
+}
+
+int isEmpty(stack ms){
+   if(ms.top < 0) return 1;
+   else return 0;
+}
+
+void dfs(Node * current){
+
+	stack s;
+	s.top = -1;
+	
+	push(&s, current);
+	
+	while(!isEmpty(s)){
+		Node * currentNode = pop(&s);
+	//	printf("%d ", currentNode->value);
+		
+		if( !visited[currentNode->value] ) {
+			printf("%d ", currentNode->value);
+			visited[currentNode->value] = true;
+			
+			Node * current  = graph[currentNode->value];		
+			while( current ){
+        		push(&s, current);
+        		current = current->next;
+        	}
+		}
+	}
+}
+
+
 void dfs(Node * current){
         if(!current) return;
         onStack[current->value] = true;
